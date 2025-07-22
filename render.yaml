@@ -3,7 +3,7 @@ services:
     name: citygazette
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn startup:application --bind 0.0.0.0:$PORT
+    startCommand: gunicorn citygazette.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: citygazette.settings

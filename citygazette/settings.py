@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gazette',  # ← твоё основное приложение
+    'gazette',  
 ]
 
 # ⚙️ Middleware
