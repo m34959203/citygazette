@@ -1,11 +1,15 @@
+# citygazette/startup.py
+
 import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'citygazette.settings')
 
-application = get_wsgi_application()
+# collectstatic при запуске
+try:
+    from django.core.management import call_command
+    call_command('collectstatic', '--noinput')
+except Exception as e:
+    print(f"❗ collectstatic error: {e}")
 
-# Выполним миграции и сбор статики автоматически при первом запуске
-from django.core.management import call_command
-call_command('migrate')
-call_command('collectstatic', '--noinput')
+application = get_wsgi_application()
